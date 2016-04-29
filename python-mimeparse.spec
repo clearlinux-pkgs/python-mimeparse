@@ -4,7 +4,7 @@
 #
 Name     : python-mimeparse
 Version  : 1.5.1
-Release  : 14
+Release  : 15
 URL      : https://pypi.python.org/packages/source/p/python-mimeparse/python-mimeparse-1.5.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/python-mimeparse/python-mimeparse-1.5.1.tar.gz
 Summary  : A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.
