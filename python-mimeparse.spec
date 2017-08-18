@@ -4,7 +4,7 @@
 #
 Name     : python-mimeparse
 Version  : 1.6.0
-Release  : 25
+Release  : 26
 URL      : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Source0  : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Summary  : A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.
@@ -18,10 +18,7 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-Python-MimeParse
 ================
-.. image:: https://travis-ci.org/dbtsai/python-mimeparse.svg?branch=master
-:target: https://travis-ci.org/dbtsai/python-mimeparse
 
 %package python
 Summary: python components for the python-mimeparse package.
@@ -35,8 +32,11 @@ python components for the python-mimeparse package.
 %setup -q -n python-mimeparse-1.6.0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484568771
+export SOURCE_DATE_EPOCH=1503076468
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -46,14 +46,18 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python mimeparse_test.py
 %install
-export SOURCE_DATE_EPOCH=1484568771
+export SOURCE_DATE_EPOCH=1503076468
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
