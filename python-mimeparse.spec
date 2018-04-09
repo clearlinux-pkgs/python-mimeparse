@@ -4,13 +4,12 @@
 #
 Name     : python-mimeparse
 Version  : 1.6.0
-Release  : 32
+Release  : 33
 URL      : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Source0  : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Summary  : A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.
 Group    : Development/Tools
 License  : MIT
-Requires: python-mimeparse-legacypython
 Requires: python-mimeparse-python3
 Requires: python-mimeparse-python
 BuildRequires : pbr
@@ -22,19 +21,9 @@ BuildRequires : setuptools
 %description
 ================
 
-%package legacypython
-Summary: legacypython components for the python-mimeparse package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the python-mimeparse package.
-
-
 %package python
 Summary: python components for the python-mimeparse package.
 Group: Default
-Requires: python-mimeparse-legacypython
 Requires: python-mimeparse-python3
 
 %description python
@@ -58,8 +47,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507170231
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1523299551
 python3 setup.py build -b py3
 
 %check
@@ -68,20 +56,14 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python mimeparse_test.py
 %install
-export SOURCE_DATE_EPOCH=1507170231
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
