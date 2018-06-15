@@ -14,7 +14,7 @@ Requires: python-mimeparse-python3
 Requires: python-mimeparse-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
