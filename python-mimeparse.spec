@@ -4,10 +4,10 @@
 #
 Name     : python-mimeparse
 Version  : 1.6.0
-Release  : 47
+Release  : 48
 URL      : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Source0  : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
-Summary  : Module of basic functions for parsing mime-type names and matching them against a list of media-ranges
+Summary  : A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.
 Group    : Development/Tools
 License  : MIT
 Requires: python-mimeparse-license = %{version}-%{release}
@@ -16,69 +16,7 @@ Requires: python-mimeparse-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-Python-MimeParse
 ================
-
-.. image:: https://travis-ci.org/dbtsai/python-mimeparse.svg?branch=master
-   :target: https://travis-ci.org/dbtsai/python-mimeparse
-
-This module provides basic functions for handling mime-types. It can
-handle matching mime-types against a list of media-ranges. See section
-5.3.2 of the HTTP 1.1 Semantics and Content specification [RFC 7231] for
-a complete explanation: https://tools.ietf.org/html/rfc7231#section-5.3.2
-
-Installation
-------------
-
-Use **pip**:
-
-.. code-block:: sh
-
-    $ pip install python-mimeparse
-
-It supports Python 2.7 - 3.5 and PyPy.
-
-Functions
----------
-
-**parse_mime_type()**
-
-Parses a mime-type into its component parts.
-
-**parse_media_range()**
-
-Media-ranges are mime-types with wild-cards and a "q" quality parameter.
-
-**quality()**
-
-Determines the quality ("q") of a mime-type when compared against a list of
-media-ranges.
-
-**quality_parsed()**
-
-Just like ``quality()`` except the second parameter must be pre-parsed.
-
-**best_match()**
-
-Choose the mime-type with the highest quality ("q") from a list of candidates.
-
-Testing
--------
-
-Run the tests by typing: ``python mimeparse_test.py``. The tests require Python 2.6.
-
-To make sure that the package works in all the supported environments, you can
-run **tox** tests:
-
-.. code-block:: sh
-
-    $ pip install tox
-    $ tox
-
-The format of the JSON test data file is as follows: A top-level JSON object
-which has a key for each of the functions to be tested. The value corresponding
-to that key is a list of tests. Each test contains: the argument or arguments
-to the function being tested, the expected results and an optional description.
 
 %package license
 Summary: license components for the python-mimeparse package.
@@ -101,7 +39,7 @@ python components for the python-mimeparse package.
 Summary: python3 components for the python-mimeparse package.
 Group: Default
 Requires: python3-core
-Provides: pypi(python-mimeparse)
+Provides: pypi(python_mimeparse)
 
 %description python3
 python3 components for the python-mimeparse package.
@@ -116,8 +54,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583213218
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583541522
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
