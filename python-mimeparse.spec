@@ -4,7 +4,7 @@
 #
 Name     : python-mimeparse
 Version  : 1.6.0
-Release  : 53
+Release  : 54
 URL      : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Source0  : http://pypi.debian.net/python-mimeparse/python-mimeparse-1.6.0.tar.gz
 Summary  : A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.
